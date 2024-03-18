@@ -1,6 +1,6 @@
 export function initializeApp() {
-    const searchButton = document.querySelector(".search-button");
-    const clearButton = document.querySelector(".reset-button");
+    const searchButton = document.querySelector("#search-btn");
+    const clearButton = document.querySelector("#reset-btn");
 
     searchButton.addEventListener("click", fetchCurrentWeather);
     clearButton.addEventListener("click", clearSearch);
