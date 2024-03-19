@@ -46,4 +46,8 @@ async function fetchCurrentWeather(searchCity, searchState, searchCountry) {
     }
 }
 
+function clearSearch() {
+    document.getElementById("#city-input").value = "";
+    document.getElementById("#country-input").value = "";
+}
 
