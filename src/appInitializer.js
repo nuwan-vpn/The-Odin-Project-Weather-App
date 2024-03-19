@@ -4,7 +4,8 @@ export function initializeApp() {
 
     searchButton.addEventListener("click", fetchCurrentWeather);
     clearButton.addEventListener("click", clearSearch);
-    document.addEventListener("DOMContentLoaded", hideBrokenImg);
 }
+
+
 
 
