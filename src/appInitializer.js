@@ -21,15 +21,15 @@ async function fetchCurrentWeather(searchCity, searchState, searchCountry) {
         console.log(searchCountry);
 
           // Run fetch and wait for response JSON
-          const response = await fetch("https://api.weatherapi.com/v1/current.json?key=8b3539c27d4545c3a1b153426241903&q=" 
-                            + searchCity + "," + searchCountry , { mode: "cors"});
+          const response = await fetch("https://api.openweathermap.org/data/2.5/weather?q=" 
+                            + searchCity + "," + searchCountry + "&appid=d06a59c02941be71d1bf04c2a8fcbc56", { mode: "cors"});
           const currentData = await response.json();
           console.log("Fetching current weather data from API....", currentData);
           
           // Construct object for my weather app from the API JSON data
           const currentWeather = {
               mainWeather: currentData.weather[0].main,
-              place: currentData.name + ", " + searchState.toUpperCase() + " " + currentData.sys.country,
+              place: currentData.name + ", "+ " " + currentData.sys.country,
               temp: Math.round(currentData.main.temp),
               humidity: currentData.main.humidity + "%",
               wind: Math.round(currentData.wind.speed) + " MPH"
@@ -48,9 +48,6 @@ async function fetchCurrentWeather(searchCity, searchState, searchCountry) {
 
 function displayWeather(currentWeather) {
     const displayDiv = document.querySelector(".display-div");
-
-    // Call function to clear any DOM elements that may be present from previous search
-    clearDOM();
 
     // Create the elements in the DOM
     const city = document.createElement("p");
