@@ -37,13 +37,36 @@ async function fetchCurrentWeather(searchCity, searchState, searchCountry) {
           console.log(currentWeather);
   
           displayWeather(currentWeather);
-  
-          getGiphy(currentWeather.mainWeather);
+
 
         } catch (err) {
             console.log("Something has went wrong with fetching the current weather data....", err);
             alert("Something has went wrong with fetching the current weather data....");
     }
+}
+
+function displayWeather(currentWeather) {
+    const displayDiv = document.querySelector(".display-div");
+
+    // Call function to clear any DOM elements that may be present from previous search
+    clearDOM();
+
+    // Create the elements in the DOM
+    const city = document.createElement("p");
+    city.textContent = currentWeather.place;
+    displayDiv.appendChild(city);
+    const status = document.createElement("p");
+    status.textContent = currentWeather.mainWeather;
+    displayDiv.appendChild(status);
+    const cityTemp = document.createElement("p");
+    cityTemp.textContent = currentWeather.temp + " Degrees";
+    displayDiv.appendChild(cityTemp);
+    const cityHumidity = document.createElement("p");
+    cityHumidity.textContent = currentWeather.humidity + " Humidity";
+    displayDiv.appendChild(cityHumidity);
+    const cityWind = document.createElement("p");
+    cityWind.textContent = currentWeather.wind + " Wind";
+    displayDiv.appendChild(cityWind);
 }
 
 function clearSearch() {
